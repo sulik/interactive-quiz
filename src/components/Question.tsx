@@ -5,12 +5,15 @@ import { QUESTIONS } from '../data/questions';
 import { Types } from '../providers/quiz.reducer';
 import { QuestionForm } from './QuestionForm';
 
+const sortedQuestions = QUESTIONS.sort((a, b) =>
+  a.weight < b.weight ? -1 : 1
+);
+
 export const Question = ({ onViewResults }: { onViewResults: () => void }) => {
   const [{ answers }, dispatch] = useQuizProvider();
-
   const [questionNumber, setQuestionNumber] = useState(0);
 
-  const question = QUESTIONS[questionNumber];
+  const question = sortedQuestions[questionNumber];
   const answer = answers.find(({ id }) => id === question.id);
   const isLastQuestion = questionNumber + 1 === QUESTIONS.length;
 
@@ -20,12 +23,13 @@ export const Question = ({ onViewResults }: { onViewResults: () => void }) => {
         type: Types.Answer,
         payload: {
           id: question.id,
+          weight: question.weight,
           answer,
           valid,
         },
       });
     },
-    [question.id, dispatch]
+    [dispatch, question.id, question.weight]
   );
 
   const handleNextQuestion = () => {

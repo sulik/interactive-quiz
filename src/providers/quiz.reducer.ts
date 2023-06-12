@@ -4,6 +4,7 @@ type Answer = {
   id: string;
   answer: number;
   valid: boolean;
+  points: number;
 };
 
 export interface QuizState {
@@ -32,6 +33,7 @@ type QuizPayload = {
     id: string;
     answer: number;
     valid: boolean;
+    weight: number;
   };
   [Types.Reset]: undefined;
 };
@@ -53,6 +55,7 @@ export const quizReducer = (state: QuizState, action: QuizActions) => {
             id: action.payload.id,
             answer: action.payload.answer,
             valid: action.payload.valid,
+            points: action.payload.valid ? action.payload.weight * 100 : 0,
           },
         ],
         health: !action.payload.valid ? state.health - 1 : state.health,
