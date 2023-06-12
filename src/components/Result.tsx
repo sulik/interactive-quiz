@@ -12,8 +12,10 @@ export const Result = ({
 }) => {
   const [{ answers }, dispatch] = useQuizProvider();
 
-  const correctAnswers = answers.filter(({ valid }) => valid);
-  const score = correctAnswers.length * 10;
+  const score = answers.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.points,
+    0
+  );
 
   const handleRetry = () => {
     dispatch({ type: Types.Reset });
