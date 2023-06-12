@@ -11,7 +11,8 @@ export const Intro = ({ onStart }: { onStart: () => void }) => {
       </Typography>
       <Typography variant="body1" sx={{ mb: 3 }}>
         The quiz consists of 10 questions. <br />
-        Each question has one correct answer.
+        Each question has one correct answer. <br />
+        You have 3 lives, each incorrect answer loses one.
       </Typography>
       <Button
         autoFocus
