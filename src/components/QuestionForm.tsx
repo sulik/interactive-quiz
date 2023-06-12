@@ -30,12 +30,15 @@ const RadioLabel = ({ label = '', valid = false, selected = false }) => {
 export const QuestionForm = ({
   data,
   value = -1,
+  hint,
   onChange,
 }: {
   data: Question;
   value?: number;
+  hint: number;
   onChange: (answer: number, valid: boolean) => void;
 }) => {
+  const isHintUsed = hint !== -1;
   const isAnswered = value !== -1;
   const isCorrectAnswer = value === data.answer;
 
@@ -63,7 +66,10 @@ export const QuestionForm = ({
             <FormControlLabel
               key={option}
               control={<Radio />}
-              disabled={isAnswered}
+              disabled={
+                isAnswered ||
+                (isHintUsed && index !== hint && index !== data.answer)
+              }
               value={index}
               label={
                 <RadioLabel
