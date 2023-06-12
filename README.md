@@ -1,6 +1,29 @@
-# Getting Started with Create React App
+# Interactive Quiz
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Objective:
+Create a small, interactive quiz application using JavaScript or a JavaScript framework of your choice (e.g., React, Vue, Angular). This application should not require any backend services.
+
+Estimated development time: 3-4 hours
+
+### Requirements:
+1. The quiz should consist of 10 questions. Each question should have one correct answer out of four possible options.
+2. The application should display one question at a time and allow the user to select an answer.
+3. After an answer is selected, the application should provide immediate feedback (indicating whether the answer was correct or incorrect) and then proceed to the next question.
+4. At the end of the quiz, the application should display the user's score and offer the option to retake the quiz.
+
+At this point package the codebase as deliverable 1 (e.g. zip file)
+
+### Additional requirements:
+1. Implement a "life" system: The user should start the quiz with 3 lives. Each incorrect answer results in the loss of one life. If all lives are lost before the quiz ends, the quiz is over, and the score is displayed.
+2. Add question weights: Each question should have a weight (difficulty level) associated with it, which affects the final score. Questions should be displayed in increasing order of difficulty. The final score should reflect the total weight of the correctly answered questions.
+3. Introduce a "hint" feature: For each question, the user has the option to request a hint, which will eliminate two incorrect options. However, using a hint will halve the weight of the question for scoring purposes.
+
+Again package the codebase as deliverable 2
+
+### Bonus
+If you finish early and want to further demonstrate your skills, consider adding some additional features, like a timer, question categories, or animations. However, these are entirely optional and should only be attempted after the main requirements have been fully met.
 
 ## Available Scripts
 
