@@ -18,11 +18,13 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           maxWidth: '900px',
           minHeight: '50vh',
           p: 4,
+          pt: 8,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           textAlign: 'center',
+          position: 'relative',
         }}>
         {children}
       </Paper>

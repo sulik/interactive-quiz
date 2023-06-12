@@ -3,7 +3,13 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import { useQuizProvider } from '../providers/QuizProvider';
 import { Types } from '../providers/quiz.reducer';
 
-export const Result = ({ onRetry }: { onRetry: () => void }) => {
+export const Result = ({
+  gameOver,
+  onRetry,
+}: {
+  gameOver: boolean;
+  onRetry: () => void;
+}) => {
   const [{ answers }, dispatch] = useQuizProvider();
 
   const correctAnswers = answers.filter(({ valid }) => valid);
@@ -17,7 +23,7 @@ export const Result = ({ onRetry }: { onRetry: () => void }) => {
   return (
     <Box>
       <Typography variant="h4" sx={{ mb: 2 }}>
-        Results
+        {gameOver ? 'Game Over' : 'Results'}
       </Typography>
       <Typography variant="h5" sx={{ mb: 6 }}>
         {`Score: ${score}`}

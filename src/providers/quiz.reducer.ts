@@ -1,3 +1,5 @@
+import { TOTAL_HEALTH } from '../constants';
+
 type Answer = {
   id: string;
   answer: number;
@@ -6,6 +8,7 @@ type Answer = {
 
 export interface QuizState {
   answers: Answer[];
+  health: number;
 }
 
 type ActionMap<M extends { [index: string]: any }> = {
@@ -37,6 +40,7 @@ export type QuizActions = ActionMap<QuizPayload>[keyof ActionMap<QuizPayload>];
 
 export const initialState = {
   answers: [],
+  health: TOTAL_HEALTH,
 };
 export const quizReducer = (state: QuizState, action: QuizActions) => {
   switch (action.type) {
@@ -51,6 +55,7 @@ export const quizReducer = (state: QuizState, action: QuizActions) => {
             valid: action.payload.valid,
           },
         ],
+        health: !action.payload.valid ? state.health - 1 : state.health,
       };
     }
     case Types.Reset: {
