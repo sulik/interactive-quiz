@@ -3,6 +3,7 @@ export interface Question {
   question: string;
   options: string[];
   answer: number;
+  weight: number; // 0.1 to 1
 }
 
 type Questions = Question[];
@@ -13,18 +14,21 @@ export const QUESTIONS: Questions = [
     question: 'In what year did man go to space for the first time?',
     options: ['1957', '1959', '1961', '1963'],
     answer: 2,
+    weight: 0.4,
   },
   {
     id: '2',
     question: 'What is the capital of Colombia?',
     options: ['Cali', 'Bogotá', 'Medellín', 'Santa Marta'],
     answer: 1,
+    weight: 0.2,
   },
   {
     id: '3',
     question: 'How many players there are in a rugby team?',
     options: ['11', '14', '10', '15'],
     answer: 3,
+    weight: 0.5,
   },
   {
     id: '4',
@@ -36,12 +40,14 @@ export const QUESTIONS: Questions = [
       'Antonio Vivaldi',
     ],
     answer: 1,
+    weight: 0.4,
   },
   {
     id: '5',
     question: 'Which animal has the same amount of chromosomes (46) as human?',
     options: ['Penguin', 'Gorilla', 'Earthworm', 'Rainbow fish'],
     answer: 3,
+    weight: 0.8,
   },
   {
     id: '6',
@@ -49,12 +55,14 @@ export const QUESTIONS: Questions = [
       "How many years did Hundred Years' War between England and France last?",
     options: ['116', '100', '94', '103'],
     answer: 0,
+    weight: 0.9,
   },
   {
     id: '7',
     question: 'Which planet is 5th from the Sun?',
     options: ['Mercury', 'Neptune', 'Jupiter', 'Saturn'],
     answer: 2,
+    weight: 0.2,
   },
   {
     id: '8',
@@ -67,17 +75,20 @@ export const QUESTIONS: Questions = [
       'Corleone & Tattaglia',
     ],
     answer: 2,
+    weight: 0.7,
   },
   {
     id: '9',
     question: 'Which country has won the most FIFA World Cups?',
     options: ['Brazil', 'Argentina', 'Spain', 'Portugal'],
     answer: 0,
+    weight: 0.6,
   },
   {
     id: '10',
     question: 'How many faces does a Dodecahedron have? ',
     options: ['12', '8', '16', '10'],
     answer: 0,
+    weight: 1,
   },
 ];
